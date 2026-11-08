@@ -15,18 +15,18 @@ func main() {
 	fmt.Println("--- BFS ---")
 	bfsOrder := g.BFS(1)
 	fmt.Printf("BFS traversal from 1: %v\n", bfsOrder)
-	shortestPath := g.ShortestPath(1, 5)
+	shortestPath := g.ShortestPathBFS(1, 5)
 	fmt.Printf("Shortest path from 1 to 5 (BFS): %v\n\n", shortestPath)
 
 	fmt.Println("--- DFS ---")
 	dfsOrder := g.DFS(2)
 	fmt.Printf("DFS traversal from 1: %v\n", dfsOrder)
 
-	path := g.FindPath(0, 5)
-	if path != nil{
-		fmt.Printf("path from 2 to 5: %v\n", path)
+	path := g.FindPathDFS(2, 5)
+	if path != nil {
+		fmt.Printf("Path from 2 to 5 (DFS): %v\n", path)
 	} else {
-		fmt.Printf("no path exist :(\n")
+		fmt.Printf("No path exists between 2 and 5 :(\n")
 	}
 
 }
