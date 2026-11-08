@@ -2,21 +2,31 @@ package main
 
 import (
 	"fmt"
-
 	"algorithms/graph"
 )
 
 func main() {
-	fmt.Println("--- Graph: BFS Traversal ---")
 	g := graph.New()
 	g.AddEdge(1, 2)
 	g.AddEdge(1, 3)
 	g.AddEdge(3, 4)
 	g.AddEdge(3, 5)
 
-	traversal := g.BFS(1)
-	fmt.Printf("BFS traversal from 1: %v\n\n", traversal)
+	fmt.Println("--- BFS ---")
+	bfsOrder := g.BFS(1)
+	fmt.Printf("BFS traversal from 1: %v\n", bfsOrder)
+	shortestPath := g.ShortestPath(1, 5)
+	fmt.Printf("Shortest path from 1 to 5 (BFS): %v\n\n", shortestPath)
 
-	path := g.ShortestPath(1, 5)
-	fmt.Printf("Shortest path from 1 to 5: %v\n", path) // Should print: [1 3 5]
+	fmt.Println("--- DFS ---")
+	dfsOrder := g.DFS(2)
+	fmt.Printf("DFS traversal from 1: %v\n", dfsOrder)
+
+	path := g.FindPath(0, 5)
+	if path != nil{
+		fmt.Printf("path from 2 to 5: %v\n", path)
+	} else {
+		fmt.Printf("no path exist :(\n")
+	}
+
 }
