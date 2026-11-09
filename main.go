@@ -29,4 +29,15 @@ func main() {
 		fmt.Printf("No path exists between 2 and 5 :(\n")
 	}
 
+	fmt.Println("\n--- Topological Sort (DAG) ---")
+	dag := graph.New()
+	dag.AddDirectedEdge(5, 2)
+	dag.AddDirectedEdge(5, 0)
+	dag.AddDirectedEdge(4, 0)
+	dag.AddDirectedEdge(4, 1)
+	dag.AddDirectedEdge(2, 3)
+	dag.AddDirectedEdge(3, 1)
+
+	topoOrder := dag.TopologicalSort()
+	fmt.Printf("Topological Sort: %v\n", topoOrder)
 }
